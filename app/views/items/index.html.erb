@@ -1,0 +1,9 @@
+<%= link_to 'マイページへ行く', user_path(current_user) %>
+
+<div class='content'>
+  <% @items.each do |item| %>
+    <p>商品名: <%= item.name %></p>
+    <p>値段: <%= item.price %></p>
+    <%= link_to '購入する' %>
+  <% end %>
+</div>
