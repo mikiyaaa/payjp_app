@@ -3,7 +3,15 @@
 <div class='content'>
   <% @items.each do |item| %>
     <p>商品名: <%= item.name %></p>
-    <p>値段: <%= item.price %></p>
-    <%= link_to '購入する', order_item_path(item.id), method: :post %>
+    <p>値段: <%= item.price %>円</p>
+    
+    <%# もしitem_orderテーブルに保存されていれば %>
+    <% if item.item_order != nil %>
+      <div class="sold-out">
+        <b>Sold Out!</b>
+      </div>
+    <% else %>
+      <%= link_to '購入する', order_item_path(item.id), method: :post %>
+    <% end %>
   <% end %>
 </div>
