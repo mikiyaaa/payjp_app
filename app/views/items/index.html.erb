@@ -4,6 +4,6 @@
   <% @items.each do |item| %>
     <p>商品名: <%= item.name %></p>
     <p>値段: <%= item.price %></p>
-    <%= link_to '購入する' %>
+    <%= link_to '購入する', order_item_path(item.id), method: :post %>
   <% end %>
 </div>
